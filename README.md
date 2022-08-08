@@ -1,2 +1,3 @@
-# AdvancedNodeStarter
-Starting project for a course on Advanced Node @ Udemy
+# AdvNode
+
+Following along with Node JS: Advanced Concepts course by Stephen Grider on Udemy
