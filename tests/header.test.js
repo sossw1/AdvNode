@@ -1,17 +1,17 @@
-const puppeteer = require('puppeteer');
 const sessionFactory = require('./factories/sessionFactory');
 const userFactory = require('./factories/userFactory');
+const Page = require('./helpers/page');
 
-let browser;
 let page;
 
 beforeEach(async () => {
-  browser = await puppeteer.launch({ headless: false });
-  page = await browser.newPage();
+  page = await Page.build();
   await page.goto('localhost:3000');
 });
 
-afterEach(async () => await browser.close());
+afterEach(async () => {
+  await page.close();
+});
 
 test('Header has the correct text', async () => {
   const text = await page.$eval('a.brand-logo', el => el.innerHTML);
