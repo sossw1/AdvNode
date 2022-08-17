@@ -41,6 +41,7 @@ describe('When logged in', async () => {
     });
 
     test('the form shows an error message', async () => {
+      await page.waitFor('.title .red-text');
       const titleError = await page.getContentsOf('.title .red-text');
       const contentError = await page.getContentsOf('.content .red-text');
 
