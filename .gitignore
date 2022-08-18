@@ -4,3 +4,4 @@ nohup.out
 
 config/dev.js
 config/prod.js
+config/ci.js
