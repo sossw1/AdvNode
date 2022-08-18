@@ -77,4 +77,15 @@ describe('When not logged in', async () => {
 
     expect(res).toEqual({ error: 'You must log in!' });
   });
+
+  test('fetching blog posts should fail', async () => {
+    const res = await page.evaluate(() => {
+      return fetch('/api/blogs', {
+        method: 'GET',
+        credentials: 'same-origin'
+      }).then(res => res.json());
+    });
+
+    expect(res).toEqual({ error: 'You must log in!' });
+  });
 });
