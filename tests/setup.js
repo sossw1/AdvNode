@@ -1,4 +1,4 @@
-jest.setTimeout(30000);
+jest.setTimeout(60000);
 
 Number.prototype._called = {};
 
