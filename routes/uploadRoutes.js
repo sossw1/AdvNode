@@ -4,8 +4,11 @@ const keys = require('../config/keys');
 const requireLogin = require('../middlewares/requireLogin');
 
 const s3 = new AWS.S3({
-  accessKeyId: keys.accessKeyId,
-  secretAccessKey: keys.secretAccessKey
+  credentials: {
+    accessKeyId: keys.accessKeyId,
+    secretAccessKey: keys.secretAccessKey
+  },
+  region: 'us-east-1'
 })
 
 module.exports = app => {
@@ -14,7 +17,7 @@ module.exports = app => {
 
     s3.getSignedUrl('putObject', {
       Bucket: 'advnode-bucket-081922',
-      ContentType: 'jpeg',
+      ContentType: 'image/jpeg',
       Key: key
     }, (err, url) => res.send({ key, url }));
   });
